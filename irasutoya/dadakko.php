@@ -11,12 +11,10 @@ class Dadakko extends Hero
     }
     public function doAttack($enemies)
     {
-        if ($this->getHp()<= 0) {
+        if(!$this->isEnableAttack($enemies)){
             return false;
         }
-        
-        $enemyIndex = rand(0, count($enemies) - 1); // 添字は0から始まるので、-1する
-        $enemy = $enemies[$enemyIndex];
+         $enemy=$this->selectTarget($enemies);
 
         if(rand(1,3)===1){
             echo "「". $this->getName()."は駄々をこねている」".PHP_EOL;

@@ -15,13 +15,11 @@ $parties[]=new Okoruhito("ものすごく怒る人");
 $parties[]=new Pien("ぴえんな人");
 
 $enemies=array();
-$enemies[]=new Enemy("踊る女性",20);
-$enemies[]=new Enemy("スーパー日本人",40);
-$enemies[]=new Enemy("鼻が高い人",10);
+$enemies[]=new Enemy("踊る女性",100,20);
+$enemies[]=new Enemy("スーパー日本人",100,40);
+$enemies[]=new Enemy("鼻が高い人",100,10);
 $turn=1;
 
-$messageObject->displayStatusMessage($parties);
-$messageObject->displayStatusMessage($enemies);
 
 $finishFlag=false;
 function isFinish($objects)
@@ -40,7 +38,9 @@ function isFinish($objects)
 
 while (!$finishFlag){
 echo $turn."ターン開始！".PHP_EOL;
-
+$messageObject->displayStatusMessage($parties);
+$messageObject->displayStatusMessage($enemies);
+echo PHP_EOL;
 $messageObject->displayAttackMessage($parties,$enemies);
 $messageObject->displayAttackMessage($enemies,$parties);
 

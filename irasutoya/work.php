@@ -26,18 +26,18 @@ class Work{
     }
     public function tookDamage($damage)
     {
-        $this->hitpoint-=$damage;
-        if($this->hitpoint<0){
+        $this->hitPoint-=$damage;
+        if($this->hitPoint<0){
             echo $this->getName()."は倒れた".PHP_EOL;
-            $this->hitpoint=0;
+            $this->hitPoint=0;
             
         }
     }
     public function recoverDamage($heal,$target)
     {
-        $this->hitpoint+=$heal;
-        if($this->hitpoint>$target::MAX_HP){
-            $this->hitpoint=$target::MAX_HP;
+        $this->hitPoint+=$heal;
+        if($this->hitPoint>$target::MAX_HP){
+            $this->hitPoint=$target::MAX_HP;
         }
     }
 

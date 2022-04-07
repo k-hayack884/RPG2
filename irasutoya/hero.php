@@ -1,9 +1,9 @@
 <?php
 class Hero extends Work{
     const MAX_HP=100;
-    public function __construct($name,$hitpoint=100,$attack=20,$special=20)
+    public function __construct($name,$hitPoint=100,$attack=20,$special=20)
     {
-      parent::__construct($name,$hitpoint,$attack,$special);
+      parent::__construct($name,$hitPoint,$attack,$special);
     }
 
     // public function doAttack($enemies)

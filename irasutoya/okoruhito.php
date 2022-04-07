@@ -12,11 +12,11 @@ class Okoruhito extends Hero
     }
     public function doAttack($enemies)
     {
-        if ($this->getHp()<= 0) {
+        if(!$this->isEnableAttack($enemies)){
             return false;
         }
-        $enemyIndex = rand(0, count($enemies) - 1); // 添字は0から始まるので、-1する
-        $enemy = $enemies[$enemyIndex];
+         $enemy=$this->selectTarget($enemies);
+        
         if($this->charge===false){
             echo "「ああああああああああああ!!」".PHP_EOL;
             echo "「". $this->getName()."はものすごく怒っている！！」".PHP_EOL;
