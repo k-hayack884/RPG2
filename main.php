@@ -10,7 +10,6 @@ $odoru_hito=new Enemy();
 $man->name="男性";
 $odoru_hito->name="踊る女性";
 
-
 $turn=1;
 while ($man->hitpoint>0 && $odoru_hito->hitpoint>0){
     echo $turn."ターン開始！".PHP_EOL;
