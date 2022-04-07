@@ -1,4 +1,5 @@
 <?php
+
 require_once('./irasutoya/work.php');
 require_once('./irasutoya/message.php');
 require_once('./irasutoya/Hero.php');
@@ -19,7 +20,6 @@ $enemies[]=new Enemy("踊る女性",100,20);
 $enemies[]=new Enemy("スーパー日本人",100,40);
 $enemies[]=new Enemy("鼻が高い人",100,10);
 $turn=1;
-
 
 $finishFlag=false;
 function isFinish($objects)
@@ -65,4 +65,3 @@ echo "戦闘終了！".PHP_EOL;
 echo PHP_EOL;
 $messageObject->displayStatusMessage($parties);
 $messageObject->displayStatusMessage($enemies);
- 
