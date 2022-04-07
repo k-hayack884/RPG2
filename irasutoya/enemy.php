@@ -7,8 +7,10 @@ class Enemy{
 
     public function doAttack($hero)
     {
-        echo "「". $this->name."の攻撃".PHP_EOL;
-        echo "「". $hero->name."に".$this->attack."のダメージを与えた！".PHP_EOL;
+
+        echo "「". $this->name."の攻撃」".PHP_EOL;
+        echo "「". $hero->name."に".$this->attack."のダメージを与えた！」".PHP_EOL;
+        $hero->tookDamage($this->attack);
     }
     public function tookDamage($damage)
     {
