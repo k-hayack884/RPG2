@@ -60,8 +60,10 @@ if ($finishFlag) {
 $turn++;
 echo PHP_EOL;
 }
+
 echo $message;
 echo "戦闘終了！".PHP_EOL;
 echo PHP_EOL;
 $messageObject->displayStatusMessage($parties);
 $messageObject->displayStatusMessage($enemies);
+
