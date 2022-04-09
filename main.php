@@ -17,7 +17,9 @@ $enemies[]=new Enemy("踊る女性",20);
 $enemies[]=new Enemy("スーパー日本人",40);
 $enemies[]=new Enemy("鼻が高い人",10);
 $turn=1;
-// while ($pien->getHp()>0 && $odoru_hito->getHp()>0){
+
+$finishFlag=false;
+while (!$finishFlag){
 echo $turn."ターン開始！".PHP_EOL;
 
 foreach($parties as $party){
@@ -27,15 +29,60 @@ foreach($enemies as $enemy){
     echo $enemy->getName()."のHPは".$enemy->getHp()."/".$enemy::MAX_HP."です".PHP_EOL;
 }
 
-// $man->doAttack($odoru_hito);
-// $dadakko->doAttack($odoru_hito);
-// $okoru_hito->doAttack($odoru_hito);
-$pien->doAttackPien($odoru_hito,$pien);
-// $odoru_hito->doAttack($man);
-$odoru_hito->doAttack($pien);
+foreach($parties as $party){
+    $enemyIndex=rand(0,count($enemies)-1);
+    $enemy=$enemies[$enemyIndex];
+if(get_class($party)==="Pien"){
+ $party->doAttackPien($enemy,$party); 
+}else{
+    $party->doAttack($enemy);
+}
+}
+foreach($enemies as $enemy){
+    $partyIndex=rand(0,count($parties)-1);
+    $party=$parties[$partyIndex];
+
+    $enemy->doAttack($party);
+}
+$deathCount = 0; 
+foreach ($parties as $party) {
+    if ($party->getHp() > 0) {
+        $finishFlag = false;
+        echo $party->getName()."は倒れた".PHP_EOL;
+        break;
+    }
+    $deathCount++;
+}
+if ($deathCount === count($parties)) {
+    $finishFlag = true;
+    echo "パーティが全滅しました".PHP_EOL;
+    break;
+}
+
+$deathCount = 0; 
+foreach ($enemies as $enemy) {
+    if ($enemy->getHp() > 0) {
+        $finishFlag = false;
+        echo $enemy->getName()."は倒れた".PHP_EOL;
+        break;
+    }
+    $deathCount++;
+}
+if ($deathCount === count($enemies)) {
+    $finishFlag = true;
+    echo "いらすとやの群れをやっつけた！".PHP_EOL;
+    break;
+}
 
 $turn++;
 echo PHP_EOL;
-// }
+}
 echo "戦闘終了！".PHP_EOL;
+echo PHP_EOL;
+foreach($parties as $party){
+    echo $party->getName()."のHPは".$party->getHp()."/".$party::MAX_HP."です".PHP_EOL;
+}
+foreach($enemies as $enemy){
+    echo $enemy->getName()."のHPは".$enemy->getHp()."/".$enemy::MAX_HP."です".PHP_EOL;
+}
  
