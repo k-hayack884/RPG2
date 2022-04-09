@@ -12,8 +12,15 @@ class Hero{
        $this->attack=$attack;
     }
 
-    public function doAttack($enemy)
+    public function doAttack($enemies)
     {
+        if ($this->getHp()<= 0) {
+            return false;
+        }
+
+        $enemyIndex = rand(0, count($enemies) - 1); // 添字は0から始まるので、-1する
+        $enemy = $enemies[$enemyIndex];
+
         echo "「". $this->getName()."の攻撃」".PHP_EOL;
         echo "「". $enemy->getName()."に".$this->attack."のダメージを与えた！」".PHP_EOL;
         $enemy->tookDamage($this->attack);
@@ -23,7 +30,9 @@ class Hero{
     {
         $this->hitpoint-=$damage;
         if($this->hitpoint<0){
+            echo $this->getName()."は倒れた".PHP_EOL;
             $this->hitpoint=0;
+            
         }
     }
     public function recoverDamage($heal,$target)
