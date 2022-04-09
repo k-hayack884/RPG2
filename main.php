@@ -1,4 +1,5 @@
 <?php
+require_once('./irasutoya/work.php');
 require_once('./irasutoya/message.php');
 require_once('./irasutoya/Hero.php');
 require_once('./irasutoya/Enemy.php');
