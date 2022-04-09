@@ -25,3 +25,4 @@ $turn++;
 echo PHP_EOL;
 }
 echo "戦闘終了！".PHP_EOL;
+ 
