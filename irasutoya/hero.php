@@ -26,6 +26,13 @@ class Hero{
             $this->hitpoint=0;
         }
     }
+    public function recoverDamage($heal,$target)
+    {
+        $this->hitpoint+=$heal;
+        if($this->hitpoint>$target::MAX_HP){
+            $this->hitpoint=$target::MAX_HP;
+        }
+    }
     public function getName()
     {
        return $this->name;
