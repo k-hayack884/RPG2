@@ -4,9 +4,10 @@ class Enemy{
     private $name;
     private $hitpoint=100;
     private $attack=20;
-    public function __construct($name)
+    public function __construct($name,$attack)
     {
        $this->name=$name;
+       $this->attack=$attack;
     }
 
     public function doAttack($hero)
