@@ -10,8 +10,13 @@ class Okoruhito extends Hero
     {
        parent::__construct($name,$this->hitpoint,$this->attack);
     }
-    public function doAttack($enemy)
+    public function doAttack($enemies)
     {
+        if(!$this->isEnableAttack($enemies)){
+            return false;
+        }
+         $enemy=$this->selectTarget($enemies);
+        
         if($this->charge===false){
             echo "「ああああああああああああ!!」".PHP_EOL;
             echo "「". $this->getName()."はものすごく怒っている！！」".PHP_EOL;

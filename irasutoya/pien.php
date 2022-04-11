@@ -10,14 +10,20 @@ class Pien extends Hero{
        parent::__construct($name,$this->hitpoint,$this->attack);
     }
 
-    public function doAttackPien($enemy,$hero)
+    public function doAttackPien($enemies,$menbers)
     {
+        if(!$this->isEnableAttack($enemies)){
+            return false;
+        }
+         
+
         if(rand(1,2)===1){
+            $menber=$this->selectTarget($menbers);
             echo "「ぴえん」".PHP_EOL;
-            echo "「". $hero->getName()."は".$this->special."のダメージを回復した！」".PHP_EOL;
-        $hero->recoverDamage($this->special,$hero);
+            echo "「". $menber->getName()."は".$this->special."のダメージを回復した！」".PHP_EOL;
+        $menber->recoverDamage($this->special,$menber);
         }else{
-            parent::doAttack($enemy);
+            parent::doAttack($enemies);
         }
         return true;
 
