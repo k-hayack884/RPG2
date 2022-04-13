@@ -1,5 +1,13 @@
 <?php
  
+ require_once('lib/Loader.php');
+ 
+ // オートロード
+ $loader = new Loader();
+ // classesフォルダの中身をロード対象ディレクトリとして登録
+ $loader->registerDirectory(__DIR__ . '/classes');
+ $loader->register();
+
 require_once('./irasutoya/work.php');
 require_once('./irasutoya/message.php');
 require_once('./irasutoya/Hero.php');
