@@ -1,6 +1,6 @@
 <?php
 class Work{
-    private $name;
+    private $name; 
     private $hitPoint;
     private $attack;
     private $special;
